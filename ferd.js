@@ -7,6 +7,8 @@ var request = require('request');
 var qs = require('querystring');
 var WebSocket = require('ws');
 
+var messageHandler = require('./messageHandler');
+
 /**
  * Ferd() sets up ferd!
  */
@@ -17,7 +19,7 @@ var Ferd = function() {
 
 /**
  * login() logs Ferd in
- * 
+ *
  * @return {}
  */
 Ferd.prototype.login = function() {
@@ -34,7 +36,7 @@ Ferd.prototype.login = function() {
 /**
  * connect() Opens up a connection to the web socket, and handles all types
  * of events.
- * 
+ *
  * @return {}
  */
 Ferd.prototype.connect = function() {
@@ -46,41 +48,53 @@ Ferd.prototype.connect = function() {
 
 /**
  * onMessage()
- * 
+ *
  * @param  {String}
  * @return {}
  */
 Ferd.prototype.onMessage = function(data) {
-  data = JSON.parse(data);
-  
-  var type = data.type;
-  var requestHandler = this._requestHandler[type];
-
-  if (requestHandler) {
-    this[requestHandler]();
+  var message = {};
+  data = this.parse(data);
+  if(data.ferd && data.ferd.agent === 'ferd' && data.ferd.module) {
+    message = messageHandler[data.ferd.module](data, this);
+    this.sendMessage(message);
   }
 };
 
 /**
- * onHello() Handles the requests for data type 'hello'
- * 
- * @return {}
+ * parse() parses data to JSON and appends ferd metadata
+ * @param  {String} data
+ * @return {Object}
  */
-Ferd.prototype.onHello = function() {
-  console.log('onHello');
+Ferd.prototype.parse = function(data) {
+  data = JSON.parse(data);
+  var re = /^(ferd)\s(\S*)\s*(.*)/;
+  var m;
+  if ((m = re.exec(data.text)) !== null) {
+      if (m.index === re.lastIndex) {
+          re.lastIndex++;
+      }
+  }
+  if(m !== null) {
+    data.ferd = {};
+    data.ferd.agent = m[1];
+    data.ferd.module = m[2];
+    data.ferd.text = m[3];
+  }
+  return data;
 };
 
 /**
  * sendMessage() Sends a message to the general channel
- * 
+ * @param {Object}
  * @return {}
  */
-Ferd.prototype.sendMessage = function() {
-  var params = {
-    channel: '#nicktron',
-    text: 'nick is the best',
-    as_user: true
-  };
+Ferd.prototype.sendMessage = function(params) {
+  // var params = {
+  //   channel: '#nicktron',
+  //   text: 'nick is the best',
+  //   as_user: true
+  // };
 
   this._api('chat.postMessage', params)
     .then(function(data) {
@@ -93,7 +107,7 @@ Ferd.prototype.sendMessage = function() {
 
 /**
  * _api() A wrapper function for making calls to the Slack API
- * 
+ *
  * @param  {String}
  * @param  {Object}
  * @return {Object}
@@ -101,7 +115,7 @@ Ferd.prototype.sendMessage = function() {
 Ferd.prototype._api = function(methodName, params) {
   params = params || {};
   params = extend(params, {token: this.token});
-  
+
   var path = methodName + '?' + qs.stringify(params);
   var data = { url: 'https://slack.com/api/' + path };
 
@@ -116,15 +130,6 @@ Ferd.prototype._api = function(methodName, params) {
       }
     });
   });
-};
-
-/**
- * _requestHandler() Handles all requests 
- * 
- * @type {Object}
- */
-Ferd.prototype._requestHandler = {
-  hello: 'onHello'
 };
 
 module.exports = Ferd;
