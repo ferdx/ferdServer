@@ -1,4 +1,8 @@
-# slackbot-test
+# Ferd
+
+https://travis-ci.org/ferdx/ferd.svg?branch=master
+
+## Getting Started
 
 * Run npm install
 * Create a .env file in the root
