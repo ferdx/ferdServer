@@ -1,6 +1,6 @@
 # Ferd
 
-https://travis-ci.org/ferdx/ferd.svg?branch=master
+[![Build Status](https://travis-ci.org/ferdx/ferd.svg?branch=master)](https://travis-ci.org/ferdx/ferd)
 
 ## Getting Started
 
