@@ -51,7 +51,8 @@ Ferd.prototype.connect = function() {
  * @return {}
  */
 Ferd.prototype.onMessage = function(data) {
-  var data = JSON.parse(data);
+  data = JSON.parse(data);
+  
   var type = data.type;
   var requestHandler = this._requestHandler[type];
 

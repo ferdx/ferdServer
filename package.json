@@ -22,5 +22,12 @@
     "slack-client": "^1.4.1",
     "slackbots": "^0.3.0",
     "ws": "^0.8.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2"
+  },
+  "scripts": {
+    "test": "grunt --verbose"
   }
 }
