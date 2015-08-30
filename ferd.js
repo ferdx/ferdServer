@@ -55,9 +55,8 @@ Ferd.prototype.connect = function() {
 Ferd.prototype.onMessage = function(data) {
   var message = {};
   data = this.parse(data);
-  if(data.ferd && data.ferd.agent === 'ferd' && data.ferd.module) {
+  if(data.ferd && data.ferd.agent === 'ferd' && data.ferd.module && messageHandler[data.ferd.module]) {
     message = messageHandler[data.ferd.module](data, this);
-    this.sendMessage(message);
   }
 };
 

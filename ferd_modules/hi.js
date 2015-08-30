@@ -1,8 +1,11 @@
+var handler = function(data, ferd) {
+  ferd.sendMessage({
+    channel: data.channel,
+    as_user: true,
+    text: 'hi',
+  });
+};
 
 module.exports = function(data, ferd) {
-  return {
-    channel: data.channel,
-    text: 'hi nick',
-    as_user: true
-  };
+  handler(data, ferd)
 };
