@@ -22,6 +22,7 @@
     "ferd-giffy": "0.0.1",
     "ferd-hi": "0.0.1",
     "ferd-yo": "0.0.1",
+    "ferd-bart": "0.0.2",
     "request": "^2.61.0",
     "slack-client": "^1.4.1",
     "slackbots": "^0.3.0",
