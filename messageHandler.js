@@ -3,9 +3,11 @@ var hi = require('ferd-hi');
 var bacon = require('ferd-bacon');
 var bart = require('ferd-bart');
 
-module.exports = {
-  yo: yo,
-  hi: hi,
-  bacon: bacon,
-  bart: bart
+module.exports = function(){
+  return {
+    yo: yo,
+    hi: hi,
+    bacon: bacon,
+    bart: bart
+  };
 };

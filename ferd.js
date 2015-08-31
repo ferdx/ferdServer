@@ -7,13 +7,14 @@ var request = require('request');
 var qs = require('querystring');
 var WebSocket = require('ws');
 
-var messageHandler = require('./messageHandler');
+var MessageHandler = require('./messageHandler');
 
 /**
  * Ferd() sets up ferd!
  */
-var Ferd = function() {
-  this.token = process.env.SLACK;
+var Ferd = function(apiKey) {
+  this.token = apiKey;
+  this.messageHandler = MessageHandler();
   this.login();
 };
 
@@ -55,8 +56,8 @@ Ferd.prototype.connect = function() {
 Ferd.prototype.onMessage = function(data) {
   var message = {};
   data = this.parse(data);
-  if(data.ferd && data.ferd.agent === 'ferd' && data.ferd.module && messageHandler[data.ferd.module]) {
-    message = messageHandler[data.ferd.module](data, this);
+  if(data.ferd && data.ferd.agent === 'ferd' && data.ferd.module && this.messageHandler[data.ferd.module]) {
+    message = this.messageHandler[data.ferd.module](data, this);
   }
 };
 
