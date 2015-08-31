@@ -3,9 +3,10 @@ var secrets = require('./secrets.js');
 
 var MegaFerd = function() {
   this.ferds = [];
-  for(var i = 0; i < secrets.slackAPIKeys.length; i++) {
-    // console.log(secrets.slackAPIKeys[i]);
-    this.ferds.push(new Ferd(secrets.slackAPIKeys[i]));
+  for(var i = 0; i < secrets.ferds.length; i++) {
+    console.log(secrets.ferds[i]);
+
+    this.ferds.push(new Ferd(secrets.ferds[i]));
   }
 };
 

@@ -12,9 +12,10 @@ var MessageHandler = require('./messageHandler');
 /**
  * Ferd() sets up ferd!
  */
-var Ferd = function(apiKey) {
-  this.token = apiKey;
-  this.messageHandler = MessageHandler();
+var Ferd = function(config) {
+  this.name = config.name;
+  this.token = config.apiKey;
+  this.messageHandler = MessageHandler(config.ferd_modules);
   this.login();
 };
 
