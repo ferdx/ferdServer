@@ -1,11 +1,8 @@
-var yo = require('ferd-yo');
-var hi = require('ferd-hi');
-var bacon = require('ferd-bacon');
-var bart = require('ferd-bart');
-
-module.exports = {
-  yo: yo,
-  hi: hi,
-  bacon: bacon,
-  bart: bart
+module.exports = function(ferd_modules){
+  var messageHandler = {};
+  for(var i = 0; i < ferd_modules.length; i++) {
+    messageHandler[ferd_modules[i]] = require('ferd-' + ferd_modules[i]);
+  }
+  console.log(messageHandler);
+  return messageHandler;
 };
