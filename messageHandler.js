@@ -1,6 +1,6 @@
-var yo = require('./ferd_modules/yo');
-var hi = require('./ferd_modules/hi');
-var bacon = require('./ferd_modules/bacon')
+var yo = require('ferd-yo');
+var hi = require('ferd-hi');
+var bacon = require('ferd-bacon');
 
 module.exports = {
   yo: yo,
