@@ -15,7 +15,7 @@ var MessageHandler = require('./messageHandler');
 var Ferd = function(config) {
   this.name = config.name;
   this.token = config.apiKey;
-  this.messageHandler = MessageHandler(config.ferd_modules);
+  this.messageHandler = new MessageHandler(config.ferd_modules);
   this.login();
 };
 
@@ -56,9 +56,11 @@ Ferd.prototype.connect = function() {
  */
 Ferd.prototype.onMessage = function(data) {
   var message = {};
+  var handler;
   data = this.parse(data);
-  if(data.ferd && data.ferd.agent === 'ferd' && data.ferd.module && this.messageHandler[data.ferd.module]) {
-    message = this.messageHandler[data.ferd.module](data, this);
+  if(data.ferd && data.ferd.agent === 'ferd' && data.ferd.module
+    && (handler = this.messageHandler.getHandler(data.ferd.module))) {
+    message = handler(data, this);
   }
 };
 
