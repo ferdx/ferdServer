@@ -12,7 +12,8 @@ module.exports = {
     apiKey: '',
     ferd_modules: [
       'bart',
-      'yo'
+      'yo',
+      'translate'
     ]
   }]
 };
