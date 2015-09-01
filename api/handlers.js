@@ -1,18 +1,35 @@
+var db = require('./db');
 var handlers = {};
 
-handler.update = function (req, res) {
+handlers.pack = function (data) {
 
-  // extract data from req and
-  // package data into json object
-
-  var data = {
-
+  var payload = {
+    username: data.username,
+    password: data.password,
+    slackOrganization: data.slackOrganization,
+    conf: {
+       botKey: data.botKey,
+       botModules: data.botModules
+    }
   };
 
-  MegaFerd.process(data, function () {
-    // callback
-    res.end();
+  // pass the updates to MegaFerd
+  MegaFerd.process(payload, function () {
+    res.end(); // callback
   });
+
+};
+
+
+handlers.fetch = function (req, res) {
+
+  // extract identifier from request
+  var query = req.body.whatever;
+
+  // interrogate the database
+  // use a promise interface in the db module
+  db.find({ query: query })
+    .then(this.pack); 
 
 };
 
