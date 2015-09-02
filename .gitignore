@@ -1,3 +1,4 @@
 node_modules
 ferd_modules
 .env
+secrets.js
