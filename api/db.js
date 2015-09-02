@@ -23,12 +23,12 @@ var profileSchema = mongoose.Schema({
 profileSchema.methods.findOne = function (objectId) {
   var model = this;
   return new Promise(function (resolve, reject) {
-    model.find({ 
+    model.findOne({ 
         objectId: objectId
       }, 
       function (err, data) {
-        if (err) {
-          reject(err);
+        if (err || !data.length) {
+          reject(err || "Not found.");
         } else {
           resolve(data);
         }
