@@ -1,30 +1,18 @@
-// sample data
 module.exports = {
-  users: [
-    {
-      username: 'tim',
-      slackOrganization: 'tim.slack.com',
-      password: '1234',
-      conf: {
-        botKey: '',
-        botModules: [
-          'hi',
-          'bart',
-        ]
-      }
-    },
-    {
-      username: 'tim',
-      slackOrganization: 'tim.slack.com',
-      password: '1234',
-      conf: {
-        botKey: '',
-        botModules: [
-          'bacon',
-          'bart',
-          'tim'
-        ]
-      }
-    }
-  ]
+  ferds: [{
+    name: 'TimBot',
+    apiKey: 'xoxp-9711269603-9711435844-9966135620-3ab048',
+    ferd_modules: [
+      'bacon',
+      'hi'
+    ]
+  },
+  {
+    name: 'AndrewBot',
+    apiKey: 'xoxp-9711269603-9711435844-9966135620-3ab048',
+    ferd_modules: [
+      'bart',
+      'yo'
+    ]
+  }]
 };

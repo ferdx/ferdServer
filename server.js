@@ -4,8 +4,15 @@ require('dotenv').load();
 // other requirements
 var express = require('express');
 var app = express();
+var listeners = require('./api/listeners');
+var parser = require('body-parser');
 var MegaFerd = require('./ferd/megaFerd');
 var f = new MegaFerd();
+
+// parse application/json
+app.use(parser.json());
+// endpoints for receiving data update events
+app.use('/api', listeners);
 
 // random route
 app.get('/', function (req, res) {
