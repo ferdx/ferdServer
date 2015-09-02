@@ -5,11 +5,18 @@
 var Config = function(config) {
   this.config = config;
 };
-
+/**
+ * Returns botKey
+ * @return {String}
+ */
 Config.prototype.botKey = function() {
   return this.config.conf.botKey;
 };
 
+/**
+ * Returns botModules
+ * @return {String}
+ */
 Config.prototype.botModules = function() {
   return this.config.conf.botModules;
 };
