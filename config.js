@@ -11,7 +11,7 @@ Config.prototype.botKey = function() {
 };
 
 Config.prototype.botModules = function() {
-  return this.config.conf.botModule;
+  return this.config.conf.botModules;
 };
 
 /**

@@ -13,7 +13,6 @@ var MessageHandler = require('./messageHandler');
  * Ferd() sets up ferd!
  */
 var Ferd = function(config) {
-  this.name = config.name;
   this.token = config.apiKey;
   this.messageHandler = new MessageHandler(config.ferd_modules);
   this.login();
@@ -134,5 +133,17 @@ Ferd.prototype._api = function(methodName, params) {
     });
   });
 };
+
+Ferd.prototype.addHandler = function(handlerName) {
+  return this.messageHandler.addHandler(handlerName);
+};
+
+Ferd.prototype.removeHandler = function(handlerName) {
+  return this.messageHandler.removeHandler(handlerName);
+};
+
+Ferd.prototype.getHandlers = function() {
+  return this.messageHandler.getHandlers();
+}
 
 module.exports = Ferd;

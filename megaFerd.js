@@ -5,7 +5,7 @@ var Config = require('./config');
  * MegaFerd. Controller of ferds/
  */
 var MegaFerd = function() {
-  //
+  // stores ferds with keys being their api tokens.
   this.ferds = {};
 };
 
@@ -20,6 +20,7 @@ MegaFerd.prototype.process = function(json, callback) {
   callback = callback || function(){};
   var config = new Config(json);
   if(this.hasFerd(config)) {
+    this.updateFerd(config);
     console.log('Ferd for this key exists');
   } else {
     this.createFerd(config);
@@ -48,6 +49,30 @@ MegaFerd.prototype.hasFerd = function(config) {
   var botKey = config.botKey();
   return !!this.ferds[botKey];
 };
+
+/**
+ * update Ferd with new config
+ * @param  {Config}  config [description]
+ */
+MegaFerd.prototype.updateFerd = function(config) {
+  var botKey = config.botKey();
+  var ferd = this.ferds[botKey];
+  var oldModules = ferd.getHandlers()
+  var newModules = config.botModules();
+  var subtract = oldModules.filter(function (a) {
+        return newModules.indexOf(a) == -1;
+  });
+  var add = newModules.filter(function (a) {
+        return oldModules.indexOf(a) == -1;
+  });
+  oldModules.forEach(function(moduleName) {
+    ferd.removeHandler(moduleName);
+  });
+  newModules.forEach(function(moduleName) {
+    ferd.addHandler(moduleName);
+  });
+  // return this.ferds[botKey];
+}
 
 /**
  * How do you kill ferd?
