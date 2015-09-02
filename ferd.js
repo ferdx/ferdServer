@@ -99,7 +99,7 @@ Ferd.prototype.sendMessage = function(params) {
 
   this._api('chat.postMessage', params)
     .then(function(data) {
-      console.log(data);
+      // console.log(data);
     })
     .catch(function(err) {
       console.log('error');

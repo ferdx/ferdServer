@@ -5,13 +5,12 @@ require('dotenv').load();
 var express = require('express');
 var app = express();
 var listeners = require('./api/listeners');
+var parser = require('body-parser');
 var MegaFerd = require('./megaFerd');
 var f = new MegaFerd();
 
-
-// PLEASE ADD BODYPARSER MIDDLEWARE -- ALSO IN PACKAGE.JSON
-
-
+// parse application/json
+app.use(parser.json());
 // endpoints for receiving data update events
 app.use('/api', listeners);
 
