@@ -19,7 +19,7 @@ handlers.pack = function (data) {
 
 handlers.fetch = function (req, res) {
   // interrogate the database and get a promise
-  db.findOne(req.body.objectId)
+  db.findOne(req.body.username)
     .then(this.pack.bind(this)); 
 };
 

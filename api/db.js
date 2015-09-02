@@ -20,14 +20,14 @@ var profileSchema = mongoose.Schema({
   }
 });
 
-profileSchema.methods.findOne = function (objectId) {
+profileSchema.methods.findOne = function (username) {
   var model = this;
   return new Promise(function (resolve, reject) {
     model.findOne({ 
-        objectId: objectId
+        username: username
       }, 
       function (err, data) {
-        if (err || !data.length) {
+        if (err || !data) {
           reject(err || "Not found.");
         } else {
           resolve(data);
