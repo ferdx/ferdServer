@@ -12,7 +12,7 @@ var MegaFerd = function() {
 /**
  * Takes in a configuration json and decides what to do with it.
  * If new BotKey, creates new Ferd object
- * Else, nothing.
+ * Else, update existing Ferd
  * @param  {JSON} json See secrets.js
  * @param {Function} callback
  */
@@ -30,8 +30,7 @@ MegaFerd.prototype.process = function(json, callback) {
 
 /**
  * Creates Ferd with config
- * @param  {Config} config [description]
- * @return {[type]}        [description]
+ * @param  {Config} config
  */
 MegaFerd.prototype.createFerd = function(config) {
   var ferdConfig = config.ferdConfig();
@@ -42,7 +41,7 @@ MegaFerd.prototype.createFerd = function(config) {
 
 /**
  * Checks if a ferd object with apiKey exists
- * @param  {Config}  config [description]
+ * @param  {Config}  config
  * @return {Boolean}
  */
 MegaFerd.prototype.hasFerd = function(config) {
@@ -51,8 +50,8 @@ MegaFerd.prototype.hasFerd = function(config) {
 };
 
 /**
- * update Ferd with new config
- * @param  {Config}  config [description]
+ * Update Ferd with new config
+ * @param  {Config}  config
  */
 MegaFerd.prototype.updateFerd = function(config) {
   var botKey = config.botKey();
@@ -71,7 +70,6 @@ MegaFerd.prototype.updateFerd = function(config) {
   newModules.forEach(function(moduleName) {
     ferd.addHandler(moduleName);
   });
-  // return this.ferds[botKey];
 }
 
 /**

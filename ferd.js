@@ -92,12 +92,6 @@ Ferd.prototype.parse = function(data) {
  * @return {}
  */
 Ferd.prototype.sendMessage = function(params) {
-  // var params = {
-  //   channel: '#nicktron',
-  //   text: 'nick is the best',
-  //   as_user: true
-  // };
-
   this._api('chat.postMessage', params)
     .then(function(data) {
       console.log(data);
@@ -134,14 +128,26 @@ Ferd.prototype._api = function(methodName, params) {
   });
 };
 
+/**
+ * Thin wrapper for MessageHandler.addHandler method
+ * @param {String} handlerName
+ */
 Ferd.prototype.addHandler = function(handlerName) {
   return this.messageHandler.addHandler(handlerName);
 };
 
+/**
+ * Thin wrapper for MessageHandler.removeHandler method
+ * @param {String} handlerName
+ */
 Ferd.prototype.removeHandler = function(handlerName) {
   return this.messageHandler.removeHandler(handlerName);
 };
 
+/**
+ * Thin wrapper for MessageHandler.getHandlers method
+ * @return {Array} All handlers
+ */
 Ferd.prototype.getHandlers = function() {
   return this.messageHandler.getHandlers();
 }
