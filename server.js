@@ -4,7 +4,7 @@ require('dotenv').load();
 // other requirements
 var express = require('express');
 var app = express();
-var MegaFerd = require('./megaFerd');
+var MegaFerd = require('./ferd/megaFerd');
 var f = new MegaFerd();
 
 // random route
