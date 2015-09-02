@@ -15,7 +15,7 @@ var MessageHandler = function(ferd_modules){
  * @param  {String} handlerName
  * @return {Function}
  */
-messageHandler.prototype.getHandler = function(handlerName) {
+MessageHandler.prototype.getHandler = function(handlerName) {
   return this.handlers[handlerName];
 }
 
@@ -24,7 +24,7 @@ messageHandler.prototype.getHandler = function(handlerName) {
  * @param  {String} handlerName
  * @return {String | null}
  */
-messageHandler.prototype.addHandler = function(handlerName) {
+MessageHandler.prototype.addHandler = function(handlerName) {
   try {
     this.handlers[handlerName] = require('ferd-' + handlerName);
     return handlerName;
@@ -39,7 +39,7 @@ messageHandler.prototype.addHandler = function(handlerName) {
  * @param  {String} handlerName
  * @return {String | null}
  */
-messageHandler.prototype.removeHandler = function(handlerName) {
+MessageHandler.prototype.removeHandler = function(handlerName) {
   try {
     delete this.handlers[handlerName]
     return handlerName;
@@ -53,7 +53,7 @@ messageHandler.prototype.removeHandler = function(handlerName) {
  * Getter for all keys of handlers
  * @return {Array[String]}
  */
-messageHandler.prototype.getHandlers = function() {
+MessageHandler.prototype.getHandlers = function() {
   return Object.keys(this.handlers);
 }
 

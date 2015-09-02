@@ -1,27 +1,28 @@
-var db = require('./db');
-var handlers = {};
+var Profile = require('./db');
+var Q = require('q');
+var MegaFerd = require('../ferd/megaFerd');
 
-handlers.pack = function (data) {
-  var payload = {
+var pack = function (data) {
+  return {
     username: data.username,
-    password: data.password,
     slackOrganization: data.slackOrganization,
     conf: {
        botKey: data.botKey,
        botModules: data.botModules
     }
   };
-  // pass the updates to MegaFerd
-  MegaFerd.process(payload, function () {
-    res.end(); // callback
-  });
 };
 
-handlers.fetch = function (req, res) {
-  // interrogate the database and get a promise
-  var handlers = this;
-  db.findOne(req.body.username)
-    .then(handlers.pack); 
+var fetch = function (req, res) {
+  var findOne = Q.nbind(Profile.findOne, Profile);
+  Profile.findOne({username: req.body.username})
+    .then(function(data) {
+      MegaFerd.process(pack(data), function () {
+        res.end(); // callback
+      });
+    });
 };
 
-module.exports = handlers;
+module.exports = {
+  fetch: fetch
+};

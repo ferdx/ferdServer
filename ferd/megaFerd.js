@@ -79,4 +79,4 @@ MegaFerd.prototype.killFerd = function() {
 
 }
 
-module.exports = MegaFerd;
+module.exports = new MegaFerd();
