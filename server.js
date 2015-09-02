@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 var listeners = require('./api/listeners');
 var parser = require('body-parser');
-var MegaFerd = require('./megaFerd');
+var MegaFerd = require('./ferd/megaFerd');
 var f = new MegaFerd();
 
 // parse application/json
