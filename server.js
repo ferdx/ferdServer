@@ -4,30 +4,19 @@ require('dotenv').load();
 // other requirements
 var express = require('express');
 var app = express();
-var listeners = require('./api/listeners');
-var parser = require('body-parser');
-// var MegaFerd = require('./ferd/megaFerd');
-// var f = new MegaFerd();
+var mongoose = require('mongoose');
 
-// parse application/json
-app.use(parser.json());
-// endpoints for receiving data update events
-app.use('/api', listeners);
+// connect to mongo
+mongoose.connect('mongodb://localhost/ferdx');
 
-// random route
-app.get('/', function (req, res) {
-  res.send('Welcome home!');
-});
+// configure our server with all the middleware
+require('./config/middleware.js')(app, express);
 
-// other random route
-app.get('/ferd', function(req, res) {
-  res.end();
-});
+// set port
+app.set('port', (process.env.PORT || 3000));
 
-// boot up server
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+// listen
+app.listen(app.get('port'));
 
-  console.log('Example app listening at http://%s:%s', host, port);
-});
+// export our app for testing and flexibility
+module.exports = app;
