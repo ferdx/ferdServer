@@ -6,10 +6,8 @@ var pack = function (data) {
   return {
     username: data.username,
     slackOrganization: data.slackOrganization,
-    conf: {
-       botKey: data.botKey,
-       botModules: data.botModules
-    }
+    botKey: data.botKey,
+    botModules: data.botModules
   };
 };
 

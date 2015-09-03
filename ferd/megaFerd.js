@@ -1,4 +1,5 @@
 var Ferd = require('./ferd');
+var User = require('../api/users/userModel');
 var Config = require('./config');
 
 /**
@@ -6,6 +7,11 @@ var Config = require('./config');
  */
 var MegaFerd = function() {
   // stores ferds with keys being their api tokens.
+  User.find({}, function(err, docs) {
+    docs.forEach(function(doc) {
+      this.process(doc);
+    }, this);
+  }.bind(this));
   this.ferds = {};
 };
 
