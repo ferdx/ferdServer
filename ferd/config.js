@@ -10,7 +10,7 @@ var Config = function(config) {
  * @return {String}
  */
 Config.prototype.botKey = function() {
-  return this.config.conf.botKey;
+  return this.config.botKey;
 };
 
 /**
@@ -18,7 +18,7 @@ Config.prototype.botKey = function() {
  * @return {String}
  */
 Config.prototype.botModules = function() {
-  return this.config.conf.botModules;
+  return this.config.botModules;
 };
 
 /**
@@ -27,8 +27,8 @@ Config.prototype.botModules = function() {
  */
 Config.prototype.ferdConfig = function() {
   var config = {};
-  config['ferd_modules'] = this.config.conf.botModules;
-  config['apiKey'] = this.config.conf.botKey;
+  config['ferd_modules'] = this.config.botModules;
+  config['apiKey'] = this.config.botKey;
   return config;
 };
 
