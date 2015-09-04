@@ -11,18 +11,6 @@ var bootstrapWhitelist = function() {
   whitelist = JSON.parse(data).ferd_modules;
 }();
 
-/**
- * Returns the intersection of whitelist and list
- * @param  {Array[String]} list
- * @return {Array[String]}
- */
-var whitelistify = function(list) {
-  return whitelist.filter(function(n) {
-      return list.indexOf(n) != -1
-  });
-};
-
 module.exports = {
   whitelist: whitelist,
-  whitelistify: whitelistify
 };

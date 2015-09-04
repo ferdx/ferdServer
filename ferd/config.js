@@ -6,6 +6,7 @@ var helpers = require('../config/helpers');
  */
 var Config = function(config) {
   this.config = config;
+  this.accessibleModules = helpers.whitelist;
 };
 /**
  * Returns botKey
@@ -40,8 +41,9 @@ Config.prototype.ferdConfig = function() {
  */
 Config.prototype.whitelistedBotModules = function() {
   var botModules = this.botModules();
-  var whitelistedBotModueles = helpers.whitelistify(botModules)
-  console.log(whitelistedBotModueles);
+  var whitelistedBotModueles = this.accessibleModules.filter(function(n) {
+        return botModules.indexOf(n) != -1;
+  });
   return whitelistedBotModueles;
 };
 
