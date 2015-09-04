@@ -16,6 +16,10 @@ Config.prototype.botKey = function() {
   return this.config.botKey;
 };
 
+Config.prototype.accessibleModules = function() {
+  return this.accessibleModules;
+};
+
 /**
  * Returns botModules
  * @return {String}
