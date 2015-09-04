@@ -25,6 +25,6 @@ module.exports = {
       });
   },
   modules: function(req, res) {
-    res.send({modules: helpers.whitelist});
+    res.send(helpers.whitelist);
   }
 };
