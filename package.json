@@ -38,5 +38,12 @@
   },
   "scripts": {
     "test": "grunt --verbose"
-  }
+  },
+  "ferd_modules": [
+  "bacon",
+  "bart",
+  "hi",
+  "translate",
+  "yo"
+  ]
 }

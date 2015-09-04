@@ -45,6 +45,9 @@ Ferd.prototype.connect = function() {
   this.ws.on('message', function(data, flags) {
     this.onMessage(data);
   }.bind(this));
+  this.ws.on('close', function close() {
+    console.log('disconnected');
+  }.bind(this));
 };
 
 /**

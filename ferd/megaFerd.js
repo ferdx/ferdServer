@@ -1,11 +1,13 @@
 var Ferd = require('./ferd');
 var User = require('../api/users/userModel');
 var Config = require('./config');
+var helper = require('../config/helpers');
 
 /**
  * MegaFerd. Controller of ferds/
  */
 var MegaFerd = function() {
+  console.log(helper.whitelist);
   // stores ferds with keys being their api tokens.
   User.find({}, function(err, docs) {
     docs.forEach(function(doc) {
@@ -64,6 +66,10 @@ MegaFerd.prototype.updateFerd = function(config) {
   var ferd = this.ferds[botKey];
   var oldModules = ferd.getHandlers()
   var newModules = config.botModules();
+  // intersection
+  newModules = helpers.whitelist.filter(function(n) {
+      return oldModules.indexOf(n) != -1
+  });
   var subtract = oldModules.filter(function (a) {
         return newModules.indexOf(a) == -1;
   });
@@ -76,13 +82,13 @@ MegaFerd.prototype.updateFerd = function(config) {
   newModules.forEach(function(moduleName) {
     ferd.addHandler(moduleName);
   });
-}
+};
 
 /**
  * How do you kill ferd?
  */
 MegaFerd.prototype.killFerd = function() {
 
-}
+};
 
 module.exports = new MegaFerd();
