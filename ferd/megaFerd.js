@@ -27,7 +27,7 @@ MegaFerd.prototype.process = function(json, callback) {
   var config = new Config(json);
   if(this.hasFerd(config)) {
     this.updateFerd(config);
-    console.log('Ferd for this key exists');
+    console.log('Ferd for this user exists');
   } else {
     this.createFerd(config);
   }
@@ -40,9 +40,9 @@ MegaFerd.prototype.process = function(json, callback) {
  */
 MegaFerd.prototype.createFerd = function(config) {
   var ferdConfig = config.ferdConfig();
-  var botKey = config.botKey();
+  var username = config.username();
   var ferd = new Ferd(ferdConfig);
-  this.ferds[botKey] = ferd;
+  this.ferds[username] = ferd;
 };
 
 /**
@@ -51,8 +51,8 @@ MegaFerd.prototype.createFerd = function(config) {
  * @return {Boolean}
  */
 MegaFerd.prototype.hasFerd = function(config) {
-  var botKey = config.botKey();
-  return !!this.ferds[botKey];
+  var username = config.username();
+  return !!this.ferds[username];
 };
 
 /**
@@ -60,8 +60,8 @@ MegaFerd.prototype.hasFerd = function(config) {
  * @param  {Config}  config
  */
 MegaFerd.prototype.updateFerd = function(config) {
-  var botKey = config.botKey();
-  var ferd = this.ferds[botKey];
+  var username = config.username();
+  var ferd = this.ferds[username];
   var oldModules = ferd.getHandlers()
   var newModules = config.whitelistedBotModules();
   var subtract = oldModules.filter(function (a) {
@@ -76,6 +76,9 @@ MegaFerd.prototype.updateFerd = function(config) {
   newModules.forEach(function(moduleName) {
     ferd.addHandler(moduleName);
   });
+  ferd.disconnect();
+  ferd.setToken(config.botKey());
+  ferd.login();
 };
 
 /**

@@ -39,6 +39,9 @@ Config.prototype.ferdConfig = function() {
   return config;
 };
 
+Config.prototype.username = function() {
+  return this.username;
+};
 /**
  * Helper function that returns whitelisted botList
  * @return {[type]}   [description]
