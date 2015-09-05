@@ -1,9 +1,12 @@
+var helpers = require('../config/helpers');
+
 /**
  * Thin wrapper aroung configuration file. Used in the case config schema changes.
  * @param {JSON} config [description]
  */
 var Config = function(config) {
   this.config = config;
+  this.accessibleModules = helpers.whitelist;
 };
 /**
  * Returns botKey
@@ -11,6 +14,10 @@ var Config = function(config) {
  */
 Config.prototype.botKey = function() {
   return this.config.botKey;
+};
+
+Config.prototype.accessibleModules = function() {
+  return this.accessibleModules;
 };
 
 /**
@@ -27,9 +34,21 @@ Config.prototype.botModules = function() {
  */
 Config.prototype.ferdConfig = function() {
   var config = {};
-  config['ferd_modules'] = this.config.botModules;
-  config['apiKey'] = this.config.botKey;
+  config['ferd_modules'] = this.whitelistedBotModules();
+  config['apiKey'] = this.botKey();
   return config;
+};
+
+/**
+ * Helper function that returns whitelisted botList
+ * @return {[type]}   [description]
+ */
+Config.prototype.whitelistedBotModules = function() {
+  var botModules = this.botModules();
+  var whitelistedBotModueles = this.accessibleModules.filter(function(n) {
+        return botModules.indexOf(n) != -1;
+  });
+  return whitelistedBotModueles;
 };
 
 module.exports = Config;

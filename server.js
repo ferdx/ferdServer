@@ -5,6 +5,7 @@ require('dotenv').load();
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
+var whitelist = require('./config/helpers'); // used to bootstrap closure
 
 // connect to mongo
 mongoose.connect('mongodb://localhost/ferdx');
