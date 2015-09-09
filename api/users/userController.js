@@ -19,6 +19,7 @@ module.exports = {
     var findOne = Q.nbind(User.findOne, User);
     User.findOne({username: req.body.username})
       .then(function(data) {
+        console.log("updating ferd!", data);
         MegaFerd.process(pack(data), function () {
           res.end();
         });

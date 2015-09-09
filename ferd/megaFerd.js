@@ -1,18 +1,21 @@
-var Ferd = require('./ferd');
+var Ferd = require('ferd');
 var User = require('../api/users/userModel');
 var Config = require('./config');
+var ModuleLoader = require('./moduleLoader')
 
 /**
  * MegaFerd. Controller of ferds/
  */
 var MegaFerd = function() {
   // stores ferds with keys being their api tokens.
+  this.ferds = {};
+  this.moduleLoader = new ModuleLoader();
+  this.moduleLoader.load('../ferd_modules');
   User.find({}, function(err, docs) {
     docs.forEach(function(doc) {
       this.process(doc);
     }, this);
   }.bind(this));
-  this.ferds = {};
 };
 
 /**
@@ -27,7 +30,6 @@ MegaFerd.prototype.process = function(json, callback) {
   var config = new Config(json);
   if(this.hasFerd(config)) {
     this.updateFerd(config);
-    console.log('Ferd for this user exists');
   } else {
     this.createFerd(config);
   }
@@ -39,10 +41,12 @@ MegaFerd.prototype.process = function(json, callback) {
  * @param  {Config} config
  */
 MegaFerd.prototype.createFerd = function(config) {
-  var ferdConfig = config.ferdConfig();
-  var username = config.username();
-  var ferd = new Ferd(ferdConfig);
-  this.ferds[username] = ferd;
+  if (config.botKey()) {
+    var username = config.username();
+    var ferd = this.ferds[username] = new Ferd(config.botKey());
+    ferd.login();
+    ferd.addModules(this.moduleLoader.getModules(config.botModules()));
+  }
 };
 
 /**
@@ -62,30 +66,12 @@ MegaFerd.prototype.hasFerd = function(config) {
 MegaFerd.prototype.updateFerd = function(config) {
   var username = config.username();
   var ferd = this.ferds[username];
-  var oldModules = ferd.getHandlers()
-  var newModules = config.whitelistedBotModules();
-  var subtract = oldModules.filter(function (a) {
-        return newModules.indexOf(a) == -1;
-  });
-  var add = newModules.filter(function (a) {
-        return oldModules.indexOf(a) == -1;
-  });
-  oldModules.forEach(function(moduleName) {
-    ferd.removeHandler(moduleName);
-  });
-  newModules.forEach(function(moduleName) {
-    ferd.addHandler(moduleName);
-  });
-  ferd.disconnect();
-  ferd.setToken(config.botKey());
-  ferd.login();
-};
-
-/**
- * How do you kill ferd?
- */
-MegaFerd.prototype.killFerd = function() {
-
+  try {
+    ferd.logout(); // hope this destroys ferd and all its observers
+  } catch(e) {
+    console.error("Cannot Logout Ferd", e);
+  }
+  this.createFerd(config);
 };
 
 module.exports = new MegaFerd();

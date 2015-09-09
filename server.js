@@ -1,7 +1,3 @@
-// require dotenv for secret stuff
-require('dotenv').load();
-
-// other requirements
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
