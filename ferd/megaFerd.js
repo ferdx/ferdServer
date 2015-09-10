@@ -1,7 +1,7 @@
 var Ferd = require('ferd');
 var User = require('../api/users/userModel');
 var Config = require('./config');
-var ModuleLoader = require('./moduleLoader')
+var ModuleLoader = require('./moduleLoader');
 
 /**
  * MegaFerd. Controller of ferds/
