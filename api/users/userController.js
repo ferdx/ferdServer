@@ -1,7 +1,7 @@
 var User = require('./userModel');
 var Q = require('q');
 var MegaFerd = require('../../ferd/megaFerd');
-var helpers = require('../../config/helpers');
+var ModuleLoader = require('../../ferd/moduleLoader');
 
 var pack = function (data) {
   return {
@@ -26,6 +26,6 @@ module.exports = {
       });
   },
   modules: function(req, res) {
-    res.send(helpers.whitelist);
+    res.send(ModuleLoader.getModuleData());
   }
 };

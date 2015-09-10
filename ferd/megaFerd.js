@@ -9,8 +9,7 @@ var ModuleLoader = require('./moduleLoader')
 var MegaFerd = function() {
   // stores ferds with keys being their api tokens.
   this.ferds = {};
-  this.moduleLoader = new ModuleLoader();
-  this.moduleLoader.load('../ferd_modules');
+  this.moduleLoader = ModuleLoader;
   User.find({}, function(err, docs) {
     docs.forEach(function(doc) {
       this.process(doc);

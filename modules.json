@@ -1,0 +1,18 @@
+{
+  "modules":[
+    {
+      "name":"yo",
+      "title":"Yo!",
+      "description":"Yo ipsum dolor sit amet, consectetur adipisicing elit. Quidem temporibus natus tenetur veniam saepe necessitatibus accusamus.",
+      "created_at":"September 7th, 2015",
+      "npm": false
+    },
+    {
+      "name":"moo",
+      "title":"Moo",
+      "description":"Moo ipsum dolor sit amet, consectetur adipisicing elit. Quidem temporibus natus tenetur veniam saepe necessitatibus accusamus.",
+      "created_at":"September 7th, 2015",
+      "npm": false
+    }
+  ]
+}
