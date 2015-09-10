@@ -1,22 +1,26 @@
 var path = require('path');
+var fs = require('fs');
 
 var ModuleLoader = function() {
   this.modules = {};
+  this.moduleJson = {};
 };
 
 /**
  * Loads all the modules in a folder on a relative path for ModuleLoader to use
  */
-ModuleLoader.prototype.load = function(path) {
+ModuleLoader.prototype.load = function() {
   var self = this;
+  var moduleJsonPath = path.resolve(".", "modules.json");
+  var ferdModulesFolderPath = path.resolve(".", './ferd_modules')
+  this.moduleJson = JSON.parse(fs.readFileSync(moduleJsonPath));
 
-  // Finds absolute path from relative path
-  var normalizedPath = require("path").join(__dirname, path);
-
-  // SYNCHRONOUS
-  require("fs").readdirSync(normalizedPath).forEach(function(file) {
-    var moduleName = file.replace(".js", "");
-    self.modules[moduleName] = require(normalizedPath + '/' + moduleName);
+  this.moduleJson.modules.forEach(function(moduleSchema) {
+    if(moduleSchema.npm) {
+      self.modules[moduleSchema.name] = require(moduleSchema.name);
+    } else {
+      self.modules[moduleSchema.name] = require(ferdModulesFolderPath + '/' + moduleSchema.name + '.js');
+    }
   });
 
 };
@@ -33,6 +37,8 @@ ModuleLoader.prototype.getModules = function(modules) {
   return moduleArray;
 };
 
+ModuleLoader.prototype.getModuleData = function() {
+  return this.moduleJson;
+};
 
-
-module.exports = ModuleLoader;
+module.exports = new ModuleLoader();

@@ -1,4 +1,3 @@
-var helpers = require('../config/helpers');
 
 /**
  * Thin wrapper aroung configuration file. Used in the case config schema changes.
@@ -6,7 +5,6 @@ var helpers = require('../config/helpers');
  */
 var Config = function(config) {
   this.config = config;
-  this.accessibleModules = helpers.whitelist;
 };
 /**
  * Returns botKey
@@ -16,9 +14,6 @@ Config.prototype.botKey = function() {
   return this.config.botKey;
 };
 
-Config.prototype.accessibleModules = function() {
-  return this.accessibleModules;
-};
 
 /**
  * Returns botModules
@@ -41,17 +36,6 @@ Config.prototype.ferdConfig = function() {
 
 Config.prototype.username = function() {
   return this.username;
-};
-/**
- * Helper function that returns whitelisted botList
- * @return {[type]}   [description]
- */
-Config.prototype.whitelistedBotModules = function() {
-  var botModules = this.botModules();
-  var whitelistedBotModueles = this.accessibleModules.filter(function(n) {
-        return botModules.indexOf(n) != -1;
-  });
-  return whitelistedBotModueles;
 };
 
 module.exports = Config;

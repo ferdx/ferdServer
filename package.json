@@ -34,9 +34,5 @@
   },
   "scripts": {
     "test": "grunt --verbose"
-  },
-  "ferd_modules": [
-    "yo",
-    "moo"
-  ]
+  }
 }
