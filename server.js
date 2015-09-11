@@ -8,7 +8,8 @@ var MegaFerd = require('./ferd/megaFerd'); // used to bootstrap MegaFerd
 var cred = process.env.MONGOLAB_CRED;
 var dbhost = process.env.MONGOLAB_HOST;
 var dbport = process.env.MONGOLAB_PORT;
-var dburi = 'mongodb://' + cred + '@' + dbhost + ':' + dbport + '/ferdx';
+var dbname = process.env.MONGOLAB_DBNAME;
+var dburi = 'mongodb://' + cred + '@' + dbhost + ':' + dbport + '/' + dbname;
 
 mongoose.connect(dburi);
 
