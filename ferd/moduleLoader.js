@@ -12,7 +12,7 @@ var ModuleLoader = function() {
 ModuleLoader.prototype.load = function() {
   var self = this;
   var moduleJsonPath = path.resolve(".", "modules.json");
-  var ferdModulesFolderPath = path.resolve(".", './ferd_modules')
+  var ferdModulesFolderPath = path.resolve(".", './ferd_modules');
   this.moduleJson = JSON.parse(fs.readFileSync(moduleJsonPath));
 
   this.moduleJson.modules.forEach(function(moduleSchema) {
@@ -22,7 +22,6 @@ ModuleLoader.prototype.load = function() {
       self.modules[moduleSchema.name] = require(ferdModulesFolderPath + '/' + moduleSchema.name + '.js');
     }
   });
-
 };
 
 /**

@@ -13,6 +13,20 @@
       "description":"Moo ipsum dolor sit amet, consectetur adipisicing elit. Quidem temporibus natus tenetur veniam saepe necessitatibus accusamus.",
       "created_at":"September 7th, 2015",
       "npm": false
+    },
+    {
+      "name":"ferd-bart",
+      "title":"Bart",
+      "description":"A module that displays the Bart schedule for a particular station.",
+      "created_at":"September 9th, 2015",
+      "npm": true
+    },
+    {
+      "name":"ferd-directions",
+      "title":"Directions",
+      "description":"A module that displays driving directions.",
+      "created_at":"September 10th, 2015",
+      "npm": true
     }
   ]
 }
