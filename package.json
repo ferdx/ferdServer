@@ -38,7 +38,7 @@
     "node": "0.12.2"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node --harmony server.js"
   },
   "ferd_modules": [
     "yo",
