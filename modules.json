@@ -27,6 +27,13 @@
       "description":"A module that displays driving directions.",
       "created_at":"September 10th, 2015",
       "npm": true
+    },
+    {
+      "name":"ferd-flix",
+      "title":"Flix",
+      "description":"A module that provides upcoming movie times based on a given location.",
+      "created_at":"September 11th, 2015",
+      "npm": true
     }
   ]
 }
