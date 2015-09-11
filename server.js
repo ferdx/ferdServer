@@ -5,7 +5,12 @@ var ModuleLoader = require('./ferd/moduleLoader').load(); // used to bootstrap M
 var MegaFerd = require('./ferd/megaFerd'); // used to bootstrap MegaFerd
 
 // connect to mongo
-mongoose.connect('mongodb://localhost/ferdx');
+var cred = process.env.MONGOLAB_CRED;
+var dbhost = process.env.MONGOLAB_HOST;
+var dbport = process.env.MONGOLAB_PORT;
+var dburi = 'mongodb://' + cred + '@' + dbhost + ':' + dbport + '/ferdx';
+
+mongoose.connect(dburi);
 
 // configure our server with all the middleware
 require('./config/middleware.js')(app, express);
