@@ -27,27 +27,6 @@
       "description":"A module that displays driving directions.",
       "created_at":"September 10th, 2015",
       "npm": true
-    },
-    {
-      "name":"ferd-eliza",
-      "title":"Eliza",
-      "description":"A module that acts as a psychotherapist.",
-      "created_at":"September 10th, 2015",
-      "npm": true
-    },
-    {
-      "name":"ferd-flix",
-      "title":"Flix",
-      "description":"A module that displays movie times specific to a location.",
-      "created_at":"September 10th, 2015",
-      "npm": true
-    },
-    {
-      "name":"ferd-trending",
-      "title":"Trending",
-      "description":"A module that displays what is trending.",
-      "created_at":"September 10th, 2015",
-      "npm": true
     }
   ]
 }
