@@ -23,6 +23,7 @@
     "ferd-bart": "0.0.5",
     "ferd-directions": "0.0.8",
     "ferd-flix": "0.0.3",
+    "ferd-trivia": "0.0.1",
     "mongoose": "^4.1.5",
     "morgan": "^1.6.1",
     "q": "^1.4.1",

@@ -34,6 +34,13 @@
       "description":"A module that provides upcoming movie times based on a given location.",
       "created_at":"September 11th, 2015",
       "npm": true
+    },
+    {
+      "name":"ferd-trivia",
+      "title":"Trivia",
+      "description":"A trivia game built for Ferd bots.",
+      "created_at":"September 12th, 2015",
+      "npm": true
     }
   ]
 }
