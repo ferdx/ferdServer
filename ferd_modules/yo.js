@@ -8,7 +8,8 @@ module.exports = function(ferd) {
 
   ferd.listen(/yo/i, function(response) {
     var sender = response.getMessageSender();
-    response.send(getRandomYo() + sender.name);
+    response.send(getRandomYo() + ', ' + 
+      (sender.profile.first_name || sender.name) + '!');
     yoCount++;
   });
 
@@ -18,7 +19,7 @@ module.exports = function(ferd) {
 
 };
 
-var randomYo = ["whats up? ", "hey ", "yo "];
+var randomYo = ['What\'s up', 'Hey', 'Yo', 'Hello', 'Hi', 'Howdy', 'G\'day', 'Bonjour'];
 var getRandomYo = function() {
   return randomYo[Math.floor(Math.random() * randomYo.length)];
 };
