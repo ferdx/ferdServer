@@ -65,12 +65,15 @@ MegaFerd.prototype.hasFerd = function(config) {
 MegaFerd.prototype.updateFerd = function(config) {
   var username = config.username();
   var ferd = this.ferds[username];
+  var botModules = config.botModules();
   try {
-    ferd.logout(); // hope this destroys ferd and all its observers
+    ferd.logout();
   } catch(e) {
     console.error("Cannot Logout Ferd", e);
   }
-  this.createFerd(config);
+  if(botModules && botModules.length > 0) {
+    this.createFerd(config);
+  }
 };
 
 module.exports = new MegaFerd();
