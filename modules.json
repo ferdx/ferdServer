@@ -41,6 +41,13 @@
       "description":"A trivia game built for Ferd bots.",
       "created_at":"September 12th, 2015",
       "npm": true
+    },
+    {
+      "name":"ferd-onion",
+      "title":"The Onion",
+      "description":"Latest trending news on the Onion.",
+      "created_at":"September 12th, 2015",
+      "npm": true
     }
   ]
 }

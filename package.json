@@ -19,7 +19,7 @@
     "dotenv": "^1.2.0",
     "express": "^4.13.3",
     "extend": "^3.0.0",
-    "ferd": "^0.3.0",
+    "ferd": "^0.4.0",
     "ferd-bart": "0.0.5",
     "ferd-directions": "0.0.8",
     "ferd-flix": "0.0.3",
