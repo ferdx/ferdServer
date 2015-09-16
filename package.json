@@ -1,24 +1,22 @@
 {
-  "name": "slackbot-test",
+  "name": "ferdServer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Serves Ferd to FerdX",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/callmenick/slackbot-test.git"
+    "url": "https://github.com/ferdX/ferdServer.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "FerdX",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/callmenick/slackbot-test/issues"
+    "url": "https://github.com/ferdx/ferdServer/issues"
   },
-  "homepage": "https://github.com/callmenick/slackbot-test",
+  "homepage": "http://ferdx.io",
   "dependencies": {
-    "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",
     "dotenv": "^1.2.0",
     "express": "^4.13.3",
-    "extend": "^3.0.0",
     "ferd": "latest",
     "ferd-bart": "latest",
     "ferd-directions": "latest",
@@ -27,10 +25,8 @@
     "mongoose": "^4.1.5",
     "morgan": "^1.6.1",
     "q": "^1.4.1",
-    "request": "^2.61.0",
     "rx": "^3.1.2",
-    "slack-client": "^1.4.1",
-    "ws": "^0.8.0"
+    "slack-client": "^1.4.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -41,11 +37,5 @@
   },
   "scripts": {
     "start": "node --harmony server.js"
-  },
-  "ferd_modules": [
-    "yo",
-    "moo",
-    "ferd-directions",
-    "ferd-bart"
-  ]
+  }
 }
