@@ -35,7 +35,7 @@ Config.prototype.ferdConfig = function() {
 };
 
 Config.prototype.username = function() {
-  return this.username;
+  return this.config.username;
 };
 
 module.exports = Config;
