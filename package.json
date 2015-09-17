@@ -19,6 +19,7 @@
     "express": "^4.13.3",
     "ferd": "latest",
     "ferd-bart": "latest",
+    "ferd-countdown": "latest",
     "ferd-directions": "latest",
     "ferd-flix": "latest",
     "ferd-trivia": "latest",
