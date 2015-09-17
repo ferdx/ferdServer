@@ -7,7 +7,25 @@
     "type": "git",
     "url": "https://github.com/ferdX/ferdServer.git"
   },
-  "author": "FerdX",
+  "author": "FerdX (http://ferdx.io)",
+  "contributors": [
+    {
+      "name": "Nick Salloum",
+      "email": "nick@callmenick.com"
+    },
+    {
+      "name": "Timothy Quach",
+      "email": "timothyquachbot@gmail.com"
+    },
+    {
+      "name": "Andrew Kishino",
+      "email": "AndrewKishino@gmail.com"
+    },
+    {
+      "name": "David Rosson",
+      "email": "david@rosson.com.au"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ferdx/ferdServer/issues"
