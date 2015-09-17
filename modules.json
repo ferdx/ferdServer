@@ -46,7 +46,8 @@
       "name":"ferd-vocab",
       "title":"Vocabulary",
       "description":"A vocabulary game.",
-      "created_at":"September 12th, 2015",
+      "created_at":"September 16th, 2015",
+      "npm": true
     },
     {
       "name":"ferd-countdown",
