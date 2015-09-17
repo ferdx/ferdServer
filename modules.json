@@ -36,6 +36,20 @@
       "npm": true
     },
     {
+      "name":"ferd-onion",
+      "title":"The Onion",
+      "description":"Latest trending news on the Onion.",
+      "created_at":"September 12th, 2015",
+      "npm": true
+    },
+    {
+      "name":"ferd-vocab",
+      "title":"Vocabulary",
+      "description":"A vocabulary game.",
+      "created_at":"September 16th, 2015",
+      "npm": true
+    },
+    {
       "name":"ferd-countdown",
       "title":"Countdown",
       "description":"Countdown timer module for Ferd the Slackbot.",
