@@ -48,6 +48,13 @@
       "description":"Latest trending news on the Onion.",
       "created_at":"September 12th, 2015",
       "npm": true
+    },
+    {
+      "name":"ferd-vocab",
+      "title":"Vocabulary",
+      "description":"A vocabulary game.",
+      "created_at":"September 12th, 2015",
+      "npm": true
     }
   ]
 }
