@@ -8,13 +8,6 @@
       "npm": false
     },
     {
-      "name":"moo",
-      "title":"Moo",
-      "description":"Moo ipsum dolor sit amet, consectetur adipisicing elit. Quidem temporibus natus tenetur veniam saepe necessitatibus accusamus.",
-      "created_at":"September 7th, 2015",
-      "npm": false
-    },
-    {
       "name":"ferd-bart",
       "title":"Bart",
       "description":"A module that displays the Bart schedule for a particular station.",
@@ -40,6 +33,13 @@
       "title":"Trivia",
       "description":"A trivia game built for Ferd bots.",
       "created_at":"September 12th, 2015",
+      "npm": true
+    },
+    {
+      "name":"ferd-countdown",
+      "title":"Countdown",
+      "description":"Countdown timer module for Ferd the Slackbot.",
+      "created_at":"September 16th, 2015",
       "npm": true
     }
   ]
