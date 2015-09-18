@@ -22,6 +22,13 @@
       "npm": true
     },
     {
+      "name":"ferd-eliza",
+      "title":"Eliza",
+      "description":"A chatterbot module that offers Rogerian therapy.",
+      "created_at":"September 17th, 2015",
+      "npm": true
+    },
+    {
       "name":"ferd-flix",
       "title":"Flix",
       "description":"A module that provides upcoming movie times based on a given location.",
