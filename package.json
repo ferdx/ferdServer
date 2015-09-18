@@ -43,6 +43,7 @@
     "ferd-eliza": "latest",
     "ferd-flix": "latest",
     "ferd-onion": "latest",
+    "ferd-translate": "latest",
     "ferd-trivia": "latest",
     "ferd-vocab": "latest",
     "mongoose": "^4.1.5",
