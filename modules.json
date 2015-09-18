@@ -1,17 +1,24 @@
 {
   "modules":[
     {
-      "name":"yo",
-      "title":"Yo!",
-      "description":"Yo ipsum dolor sit amet, consectetur adipisicing elit. Quidem temporibus natus tenetur veniam saepe necessitatibus accusamus.",
-      "created_at":"September 7th, 2015",
-      "npm": false
-    },
-    {
       "name":"ferd-bart",
       "title":"Bart",
       "description":"A module that displays the Bart schedule for a particular station.",
       "created_at":"September 9th, 2015",
+      "npm": true
+    },
+    {
+      "name":"ferd-countdown",
+      "title":"Countdown",
+      "description":"Countdown timer module for Ferd the Slackbot.",
+      "created_at":"September 16th, 2015",
+      "npm": true
+    },
+    {
+      "name":"ferd-dice",
+      "title":"Dice",
+      "description":"Random dice thrower for Ferd",
+      "created_at":"September 17th, 2015",
       "npm": true
     },
     {
@@ -36,16 +43,30 @@
       "npm": true
     },
     {
-      "name":"ferd-trivia",
-      "title":"Trivia",
-      "description":"A trivia game built for Ferd bots.",
+      "name":"ferd-onion",
+      "title":"The Onion",
+      "description":"Latest trending news on the Onion.",
       "created_at":"September 12th, 2015",
       "npm": true
     },
     {
-      "name":"ferd-onion",
-      "title":"The Onion",
-      "description":"Latest trending news on the Onion.",
+      "name":"ferd-translate",
+      "title":"Translate",
+      "description":"Translation module for Ferd the Slackbot.",
+      "created_at":"September 18th, 2015",
+      "npm": true
+    },
+    {
+      "name":"ferd-trending",
+      "title":"Trending",
+      "description":"Real but stale news.",
+      "created_at":"September 18th, 2015",
+      "npm": true
+    },
+    {
+      "name":"ferd-trivia",
+      "title":"Trivia",
+      "description":"A trivia game built for Ferd bots.",
       "created_at":"September 12th, 2015",
       "npm": true
     },
@@ -57,11 +78,11 @@
       "npm": true
     },
     {
-      "name":"ferd-countdown",
-      "title":"Countdown",
-      "description":"Countdown timer module for Ferd the Slackbot.",
-      "created_at":"September 16th, 2015",
-      "npm": true
+      "name":"yo",
+      "title":"Yo!",
+      "description":"Say yo to your bot, and It'll say yo back. Sweet!",
+      "created_at":"September 7th, 2015",
+      "npm": false
     }
   ]
 }
