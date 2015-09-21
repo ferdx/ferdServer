@@ -15,6 +15,13 @@
       "npm": true
     },
     {
+      "name":"ferd-define",
+      "title":"Define",
+      "description":"Word definitions from WordNet.",
+      "created_at":"September 21st, 2015",
+      "npm": true
+    },
+    {
       "name":"ferd-dice",
       "title":"Dice",
       "description":"Random dice thrower for Ferd",
@@ -53,6 +60,13 @@
       "name":"ferd-translate",
       "title":"Translate",
       "description":"Translation module for Ferd the Slackbot.",
+      "created_at":"September 18th, 2015",
+      "npm": true
+    },
+    {
+      "name":"ferd-trending",
+      "title":"Trending",
+      "description":"Real but stale news.",
       "created_at":"September 18th, 2015",
       "npm": true
     },

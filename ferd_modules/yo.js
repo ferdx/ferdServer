@@ -1,8 +1,6 @@
 module.exports = function(ferd) {
   var yoCount = 0;
 
-
-
   ferd.listen(/ferd yo/i, function(response) {
     var sender = response.getMessageSender();
     var name = 'Buddy';
