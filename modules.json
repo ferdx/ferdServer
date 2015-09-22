@@ -64,13 +64,6 @@
       "npm": true
     },
     {
-      "name":"ferd-trending",
-      "title":"Trending",
-      "description":"Real but stale news.",
-      "created_at":"September 18th, 2015",
-      "npm": true
-    },
-    {
       "name":"ferd-trivia",
       "title":"Trivia",
       "description":"A trivia game built for Ferd bots.",
